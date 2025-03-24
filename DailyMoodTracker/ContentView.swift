@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView{
+            MainView().tabItem {
+                Label("Mood Log", systemImage: "book.pages.fill")
+            }
+            MoodReportView().tabItem{
+                Label("Report", systemImage: "chart.bar.horizontal.page.fill")
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView().environmentObject(MoodViewModel())
 }
